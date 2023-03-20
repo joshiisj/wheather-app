@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+ 
+   html{
+    background: #eee;
+   }
+  body {
+    background: #f3f2ef;
+        display:flex;
+        justify-content:center;
+        align-items: center;
+        flex-wrap: wrap;
+    font-family: 'Lora', serif;
+  }
+  .container {
+    height: 100vh;
+    width: 50vw;
+    border-radius: 1.0rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: #a5bbdd;
+    background: radial-gradient(
+      circle,
+      rgba(100, 158, 158, 0.633) 20%,
+      rgba(131, 175, 187, 0.841) 35%,
+      #a5bbdd
+    );
+    position: relative;
+    overflow: hidden;
+    min-width: 20rem;
+    min-height: 35rem;
+   
+  }
+  .wave{ 
+    opacity: 0.3;
+        position:absolute;
+        top:120%;
+        left:50%;
+        background: rgb(237, 237, 237);
+        width:50rem;
+        height: 50rem;
+        margin-left: -25rem;
+        margin-top: -25rem;
+        transform-origin: 50% 48%;
+        border-radius: 43%;
+        animation: drift 3000ms infinite linear;
+        z-index:1;
+
+  }
+  .wave.-three{
+    animation: drift 5000ms infinite linear;
+    z-index:2 !important;
+    opacity:0.2;
+  }
+  .wave.-two{
+    animation: drift 7000ms infinite linear;
+    z-index:3 !important;
+    opacity:0.1;
+   }
+   
+    
+  @keyframes drift{
+    from{
+        transform: rotate(0deg);
+    }
+    from{
+        transform: rotate(360deg);
+    }
+  }
+
+ 
+  .weather {
+    display: flex; 
+    align-items: center;
+    padding: 10px;
+    margin: 25px 0;
+    font-size: 2.0rem;
+    z-index: 4;
+  }
+  #location {
+    font-size: 3rem;
+    font-weight: 800;
+    font-style: italic;
+    z-index: 4;
+  }
+  .desc {
+    font-size: 1.00rem;
+    text-transform: capitalize;
+    
+  }
+  .circle {
+    background-color: rgb(4, 24, 35);
+    border-radius: 50px;
+    height: 15px;
+    width: 15px;
+    margin: 0 15px;
+  }
+  .info {
+    line-height: 2;
+    z-index: 5;
+  }
+  #date{
+    z-index: 4;
+  }
+  

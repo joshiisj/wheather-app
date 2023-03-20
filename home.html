@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather app</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    
+    <div class="container">
+        <div class="wave -one"></div>
+        <div class="wave -two"></div>
+        <div class="wave -three"></div>
+     
+        <img src="" alt="" srcset="" id="weather-icon">
+        <div id="location">Unable to Fetch Weather</div>
+        <div class="desc">No Information Available.</div>
+        <div class="weather">
+            <div class="c">Error</div>
+            <div class="circle"></div>
+            <div class="f">Error</div>
+        </div>
+        <p id="date">WED| OCT 23 |10:49</p><br>
+        <div class="info">
+            <h4>Sunrise: <span class="sunrise">No Information Available</span></h4>
+            <h4>Sunset: <span class="sunset">No Information Available</span></h4>
+        </div>
+
+       
+
+    </div>
+   
+    <script src="scripts.js"></script>
+</body>
+<script>
+    const curDate=document.getElementById("date");
+    
+    const getCurrDay=()=>{
+        var weekday=new Array();
+        weekday[0]="Sun";
+        weekday[1]="Mon";
+        weekday[2]="Tue";
+        weekday[3]="Wed";
+        weekday[4]="Thu";
+        weekday[5]="Fri";
+        weekday[6]="Sat";
+        let currentTime=new Date();
+        let week=(weekday[currentTime.getDay()]);
+        return week;
+    };
+    const getCurrentTime=()=>{
+        var month=new Array();
+        month[0]="Jan";
+        month[1]="Feb";
+        month[2]="Mar";
+        month[3]="April";
+        month[4]="May";
+        month[5]="June";
+        month[6]="Jul";
+        month[7]="Aug";
+        month[8]="Sep";
+        month[9]="Oct";
+        month[10]="Nov";
+        month[11]="Dec";
+     var now=new Date();
+     var month=month[now.getMonth()];
+     var date=now.getDate();
+     var year=now.getFullYear();
+
+     let hours=now.getHours();
+     let min=now.getMinutes();
+     let perios="AM";
+
+     if(hours>11){
+        perios="PM";
+        if(hours>12){
+            hours-=12;
+        }
+     }
+     if(min<10){
+        min="0"+min;
+     }
+     return `${month} ${date} | ${hours}:${min}${perios}`;
+    };
+    curDate.innerHTML=getCurrDay()+ " | "+ getCurrentTime()
+</script>
+
+</html>
